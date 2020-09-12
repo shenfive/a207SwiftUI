@@ -9,19 +9,19 @@
 import SwiftUI
 
 struct ContentView: View {
+    @State var activeTab:Int = 0
     var body: some View {
-        VStack { Text("AAA").font(.largeTitle)
-            Text("BBB")
-            HStack {
-                Text("AAA")
-                Text("BBB")
-            }
-            ZStack {
-                Text("AAA")
-                Text("BBB")
-            }
+        TabView(selection: $activeTab) { Text("in page \(activeTab)")
+            .tabItem {
+                Image(systemName: "list.bullet")
+        }.tag(1)
+            Text("in page \(activeTab)")
+                .font(.largeTitle)
+                .tabItem {
+                    Image(systemName: "list.bullet")
+            }.tag(2)
+            
         }
-        
     }
 }
 
